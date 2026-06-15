@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дома вашей мечты | Современная недвижимость</title>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="styles/boostrap/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --primary-light: #ffffff;
+      --primary-dark: #111111;
+      --accent-gold: #054205;
+      --text-muted: #6c6c6c;
+      --border-light: #f0f0f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      line-height: 1.5;
+    }
+
+    /* Typography */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    /* Навигация */
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.96) !important;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--primary-dark) !important;
+      letter-spacing: -0.02em;
+    }
+
+    .navbar-brand i {
+      color: var(--accent-gold);
+      margin-right: 6px;
+    }
+
+    .navbar img {
+      width: 40px;
+    }
+
+    .nav-link {
+      font-weight: 450;
+      color: var(--primary-dark) !important;
+      margin: 0 0.75rem;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-gold) !important;
+    }
+
+    /* Контактный блок в хедере */
+    .header-contact {
+      background: #f8f8f8;
+      padding: 8px 18px;
+      border-radius: 60px;
+      margin-left: 16px;
+      transition: all 0.2s;
+      border: 1px solid #eaeaea;
+    }
+
+    .header-contact:hover {
+      background: #fff;
+      border-color: var(--primary-dark);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .header-contact-icon {
+      font-size: 1.4rem;
+      color: var(--primary-dark);
+      margin-right: 12px;
+      line-height: 1;
+    }
+
+    .header-contact-info {
+      line-height: 1.3;
+    }
+
+    .header-phone {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #111;
+      letter-spacing: -0.2px;
+    }
+
+    .header-hours {
+      font-size: 0.7rem;
+      color: #6c757d;
+    }
+
+    /* На мобильных устройствах контактный блок показываем внутри выпадающего меню (опционально) */
+    @media (max-width: 991.98px) {
+      .header-contact {
+        display: flex !important;
+        margin: 12px 0 0 0;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Герой (с фоновым изображением) */
+    .hero {
+      padding: 200px 0 140px;
+      position: relative;
+      background: url(styles/img/black.home1.jpg) center center / cover no-repeat;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero .house-label {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .lead {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+    }
+
+    .hero .btn-custom {
+      background-color: white;
+      color: var(--primary-dark);
+      border: none;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .hero .btn-custom:hover {
+      background-color: var(--accent-gold);
+      color: white;
+    }
+
+    .hero .btn-outline-custom {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 40px;
+      transition: 0.3s;
+    }
+
+    .hero .btn-outline-custom:hover {
+      background-color: white;
+      color: var(--primary-dark);
+    }
+
+    /* Общие стили секций */
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    .bg-soft {
+      background-color: #fafaf9;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaa;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Карточки объектов (уже modern) */
+    .object-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f0f0;
+    }
+
+    .object-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.12);
+      border-color: #e0e0e0;
+    }
+
+    .card-media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .object-card:hover .card-media img {
+      transform: scale(1.02);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #222;
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #4a4a4a;
+      margin-bottom: 20px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-top: 1px solid #efefef;
+      padding-top: 18px;
+    }
+
+    .card-price {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #111;
+    }
+
+    .card-link {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #222;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .card-link:hover {
+      color: var(--accent-gold);
+      border-bottom-color: var(--accent-gold);
+    }
+
+    /* Стили для оверлея изображения */
+    .card-media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .card-media:hover .image-overlay {
+      opacity: 1;
+    }
+
+    .gallery-trigger {
+      cursor: pointer;
+    }
+
+    /* Стили для карусели в модалке */
+    #galleryCarousel .carousel-item img,
+    #galleryCarousel .carousel-item video {
+      max-height: 80vh;
+      width: auto;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .carousel-inner {
+      background-color: #000;
+    }
+
+    /* Блок связи после карточек */
+    .contact-teaser {
+      margin-top: 60px;
+      padding-top: 20px;
+      position: relative;
+    }
+
+    .teaser-line {
+      width: 40px;
+      height: 1px;
+      background: #ddd;
+      margin: 0 auto 25px;
+    }
+
+    .teaser-text {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #222;
+      margin-bottom: 12px;
+    }
+
+    .teaser-link {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #222;
+      text-decoration: none;
+      border-bottom: 1px solid #222;
+      padding-bottom: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .teaser-link:hover {
+      opacity: 0.8;
+    }
+
+    .teaser-note {
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-top: 14px;
+    }
+
+    /* Видео */
+    .video-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.1);
+    }
+
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    /* Инфраструктура (карточки) */
+    .infra-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .infra-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+      height: 100%;
+    }
+
+    .infra-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+    }
+
+    .infra-icon {
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+      margin-bottom: 1rem;
+    }
+
+    .infra-card h5 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .infra-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Услуги */
+    .service-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.3s;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-gold);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      color: var(--accent-gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Контакты */
+    .contact-block {
+      background: white;
+      border-radius: 32px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--accent-gold);
+      margin-right: 1rem;
+    }
+
+    .form-control-modern {
+      border: 1px solid var(--border-light);
+      border-radius: 60px;
+      padding: 0.8rem 1.2rem;
+      background: #fff;
+      transition: 0.2s;
+    }
+
+    .form-control-modern:focus {
+      border-color: var(--accent-gold);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(192, 161, 107, 0.1);
+    }
+
+    /* Карта */
+    .map-wrapper {
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Футер */
+    .footer {
+      background-color: #111;
+      color: #aaa;
+      padding: 2.5rem 0;
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: var(--accent-gold);
+    }
+
+    .modal-body p {
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+      }
+
+      .card-price {
+        font-size: 1.1rem;
+      }
+
+      .contact-block {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- НАВИГАЦИЯ -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="styles/img/logo.svg" alt="Логотип ЖК Рождественно" height="32" class="me-2">
+        <span class="fw-medium">ЖК «Рождествено»</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav me-3">
+          <li class="nav-item"><a class="nav-link" href="#objects">Объекты</a></li>
+          <li class="nav-item"><a class="nav-link" href="#location">О комплексе</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+        </ul>
+        <!-- Контактный блок в хедере -->
+        <div class="header-contact d-none d-lg-flex align-items-center">
+          <div class="header-contact-icon">
+            <i class="bi bi-telephone-outbound-fill"></i>
+          </div>
+          <div class="header-contact-info">
+            <div class="header-phone">+7 (927) 027-70-27</div>
+            <div class="header-hours">ежедневно с 10:00 до 17:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav> <!-- ХИРО с фото -->
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <span class="house-label">Готовые дома и коммерция</span>
+          <h1>Дом, где каждая деталь — для вашего комфорта</h1>
+          <p class="lead">Современные дома 133 м² с землёй, газом и черновой отделкой. Также коммерческие помещения
+            в аренду.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#objects" class="btn btn-custom">Смотреть дома</a>
+            <a href="#contacts" class="btn btn-outline-custom">Записаться на просмотр</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБЪЕКТЫ (modern) -->
+  <section id="objects" class="section-padding objects-modern">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Дома и таунхаусы с земельным участком</h2>
+        <p class="section-desc">Эксклюзивные предложения в наличии и аренда</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Таунхаус (с галереей) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="object-card"
+            data-gallery="styles/img/tanhays.black1.jpg,styles/img/tanhays.black2.jpg,styles/img/tanhays.black3.jpg,styles/img/tanhays.black4.jpg">
+            <div class="card-media gallery-trigger" style="cursor: pointer;">
+              <img src="styles/img/tanhays.black1.jpg" alt="Таунхаус 100 м²">
+              <div class="card-badge">Участок 3-4 сотки</div>
+              <div class="image-overlay"><i class="bi bi-arrows-angle-expand"></i></div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Таунхаус «Семейный»</h3>
+              <div class="card-meta">133 м²</div>
+              <p class="card-text">Черновая отделка, парковка, охраняемая территория, тераса. Готов к заселению.</p>
+              <div class="card-footer">
+                <span class="card-price">10,7 млн ₽</span>
+                <a href="main.html" class="card-link">Подробнее →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Дуплекс -->
+        <div class="col-md-6 col-lg-4">
+          <div class="object-card"
+            data-gallery="styles/img/dyplex.black1.jpg,styles/img/dyplex.black2.jpg,styles/img/dyplex.black3.jpg,styles/img/dyplex.black4.jpg,styles/img/dyplex.black5.jpg">
+            <div class="card-media gallery-trigger" style="cursor: pointer;">
+              <img src="styles/img/dyplex.black1.jpg" alt="Дуплекс 140 м²">
+              <div class="card-badge">Участок 4 сотки</div>
+              <div class="image-overlay"><i class="bi bi-arrows-angle-expand"></i></div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Дуплекс «Уютный»</h3>
+              <div class="card-meta">133 м²</div>
+              <p class="card-text">Отдельные входы, терраса, газ. Премиальная планировка.</p>
+              <div class="card-footer">
+                <span class="card-price">11,7 млн ₽</span>
+                <a href="main2.html" class="card-link">Подробнее →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Торговое помещение (аренда) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="object-card"
+            data-gallery="styles/img/dyplex.black8.jpg,styles/img/dyplex.black9.jpg,styles/img/dyplex.black10.jpg">
+            <div class="card-media gallery-trigger" style="cursor: pointer;">
+              <img src="styles/img/dyplex.black8.jpg" alt="Торговое помещение">
+              <div class="card-badge">Коммерческая недвижимость</div>
+              <div class="image-overlay"><i class="bi bi-arrows-angle-expand"></i></div>
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Торговое помещение</h3>
+              <div class="card-meta">от 75 м²</div>
+              <p class="card-text">Отдельный вход, витрины, санузел. Идеально под кофейню или бутик.</p>
+              <div class="card-footer">
+                <span class="card-price">65 000 ₽ / мес</span>
+                <a href="main3.html" class="card-link">Подробнее →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Тег связи 
+      <div class="contact-teaser text-center">
+        <div class="teaser-line"></div>
+        <p class="teaser-text">Не нашли подходящий вариант?</p>
+        <a href="#" class="teaser-link" data-bs-toggle="modal" data-bs-target="#contactModal">
+          Получить консультацию
+        </a>
+        <p class="teaser-note">Индивидуальный подбор объектов под ваш запрос</p>
+      </div>-->
+    </div>
+  </section>
+
+  <!-- Модальное окно для галереи изображений -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body p-0">
+          <div id="galleryCarousel" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner rounded-4 overflow-hidden shadow-lg">
+              <!-- Слайды будут добавлены динамически через JS -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Обработка клика по изображению для открытия галереи
+    document.addEventListener('DOMContentLoaded', function () {
+      const triggers = document.querySelectorAll('.gallery-trigger');
+      const galleryModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+      const carouselInner = document.querySelector('#galleryCarousel .carousel-inner');
+
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', function (e) {
+          // Получаем массив путей из data-gallery родительской карточки
+          const card = this.closest('.object-card');
+          const galleryData = card.getAttribute('data-gallery');
+          if (!galleryData) return;
+
+          const images = galleryData.split(',').map(img => img.trim());
+
+          // Очищаем карусель
+          carouselInner.innerHTML = '';
+
+          // Создаём слайды
+          images.forEach((imgSrc, index) => {
+            const isActive = index === 0 ? 'active' : '';
+            const slideDiv = document.createElement('div');
+            slideDiv.className = `carousel-item ${isActive}`;
+            slideDiv.innerHTML = `<img src="${imgSrc}" class="d-block w-100" alt="Фото">`;
+            carouselInner.appendChild(slideDiv);
+          });
+
+          // Если только одно изображение — убираем кнопки навигации
+          const prevBtn = document.querySelector('#galleryCarousel .carousel-control-prev');
+          const nextBtn = document.querySelector('#galleryCarousel .carousel-control-next');
+          if (images.length === 1) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+          } else {
+            prevBtn.style.display = '';
+            nextBtn.style.display = '';
+          }
+
+          galleryModal.show();
+        });
+      });
+    });
+  </script>
+
+  <!-- ВИДЕО -->
+  <!-- Блок: описание ЖК + мультимедийный слайдер (видео + фото) -->
+  <section id="location" class="section-padding bg-soft" style="position: relative;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- Левая колонка: текст -->
+        <div class="col-lg-6">
+          <div class="mb-4">
+            <h2 class="display-5 fw-normal mt-2 mb-3" style="letter-spacing: -0.02em;">ЖК «Рождествено»</h2>
+            <p class="text-muted" style="max-width: 90%;">пространство для жизни, где природа встречается с комфортом
+            </p>
+          </div>
+
+          <p class="lead fw-medium">Современный комплекс в окружении соснового леса и в шаговой доступности от Волги.
+          </p>
+          <p class="text-secondary">ЖК «Рождествено» — это гармония загородной тишины и городского удобства. Закрытая
+            охраняемая территория, продуманная инфраструктура и экологичная среда создают идеальные условия для жизни
+            всей семьёй.</p>
+
+          <div class="row mt-4">
+            <div class="col-6">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-tree fs-5" style="color: var(--accent-gold)"></i>
+                <span>Сосновый лес в 200 метрах</span>
+              </div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-water fs-5" style="color: var(--accent-gold)"></i>
+                <span>Волга — 10 минут пешком</span>
+              </div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-shield-lock fs-5" style="color: var(--accent-gold)"></i>
+                <span>Круглосуточная охрана</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-shop fs-5" style="color: var(--accent-gold)"></i>
+                <span>Торговая галерея</span>
+              </div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-bicycle fs-5" style="color: var(--accent-gold)"></i>
+                <span>Велосипедные маршруты</span>
+              </div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-people fs-5" style="color: var(--accent-gold)"></i>
+                <span>Детский сад и зоны отдыха</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-3 text-secondary">Каждый дом в «Рождествено» спроектирован с учётом современных стандартов:
+            высокие потолки, панорамное остекление, энергоэффективные материалы. А главное — вы чувствуете себя в
+            безопасности и уюте 24/7.</p>
+
+          <a href="#objects" class="btn btn-outline-dark rounded-pill px-4 py-2 mt-2"
+            style="border-color: #111; transition: 0.2s;">
+            Выбрать дом <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+
+        <!-- Правая колонка: слайдер -->
+        <div class="col-lg-6">
+          <div id="mediaSlider2" class="carousel slide" data-bs-ride="false">
+
+            <div class="carousel-inner rounded-4 overflow-hidden shadow-sm">
+              <div class="carousel-item active">
+                <video class="d-block w-100" controls poster="styles/img/black.home1.jpg"
+                  style="height: 420px; object-fit: cover;">
+                  <source src="styles/video/video1.mp4" type="video/mp4">
+                  Ваш браузер не поддерживает видео.
+                </video>
+              </div>
+
+            </div>
+
+          </div>
+          <p class="text-muted mt-4 text-center small">листайте стрелками — видеообзор и фотографии</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const slider = document.getElementById('mediaSlider2');
+      if (slider) {
+        const video = slider.querySelector('video');
+        slider.addEventListener('slid.bs.carousel', function () {
+          if (video) video.pause();
+        });
+      }
+    });
+  </script>
+
+  <!-- ИНФРАСТРУКТУРА (О районе) -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">преимущества</span>
+        <h2 class="section-title">Всё для жизни рядом с домом</h2>
+        <p class="section-desc">Продуманная среда для комфортной жизни</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3">
+          <div class="infra-card">
+            <i class="bi bi-tree infra-icon"></i>
+            <h5>Сосновый лес</h5>
+            <p>Лес в 200 м, экологичная зона для прогулок</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="infra-card">
+            <i class="bi bi-shield-lock infra-icon"></i>
+            <h5>Круглосуточная охрана</h5>
+            <p>Закрытая территория, видеонаблюдение</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="infra-card">
+            <i class="bi bi-cup-hot infra-icon"></i>
+            <h5>Супермаркеты в шаговой доступности</h5>
+            <p>В шаговой доступности</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="infra-card">
+            <i class="bi bi-people infra-icon"></i>
+            <h5>Детская площадка</h5>
+            <p>Современный игровой комплекс</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ 
+  <section id="services" class="section-padding bg-soft">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">сервис</span>
+        <h2 class="section-title">Что я могу для вас сделать</h2>
+        <p class="section-desc">Полное сопровождение сделки</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="service-card">
+            <i class="bi bi-calculator service-icon"></i>
+            <h4>Помощь с ипотекой</h4>
+            <p>Рассчитаем платеж, подберём программы с господдержкой (ставки от 6%).</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-card">
+            <i class="bi bi-file-check service-icon"></i>
+            <h4>Юридическая проверка</h4>
+            <p>Полная проверка чистоты сделки. Помощь в оформлении.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-card">
+            <i class="bi bi-search service-icon"></i>
+            <h4>Подбор по параметрам</h4>
+            <p>Найдём идеальный вариант под ваш бюджет и пожелания.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="service-card">
+            <i class="bi bi-calendar-check service-icon"></i>
+            <h4>Сопровождение сделки</h4>
+            <p>От просмотра до подписания договора — полностью на вас.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- КОНТАКТЫ -->
+  <section id="services" class="position-relative"
+    style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 70px 0; overflow: hidden;">
+    <!-- Декоративный узор (линии) -->
+    <div class="position-absolute top-0 start-0 w-100 h-100"
+      style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px); pointer-events: none;">
+    </div>
+
+    <!-- Герб справа (большой, видна только половина) -->
+    <div class="position-absolute top-50 end-0 translate-middle-y"
+      style="width: 1000px; height: auto; opacity: 5; pointer-events: none; transform: translateX(50%) translateY(-50%);">
+      <img src="styles/img/gerb.webp" alt="" style="width: 100%; height: auto;">
+    </div>
+
+    <div class="container position-relative">
+      <div class="row g-5">
+        <!-- Левая колонка: контактная информация -->
+        <div class="col-lg-6">
+          <div class="contact-block bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
+            style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
+            <h3 class="mb-3 fw-semibold" style="color: #2c3e2b;">Планируете переезд или покупку дома?</h3>
+            <p class="text-secondary mb-4">Получите бесплатную консультацию и подбор объектов.</p>
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-telephone fs-3 me-3" style="color: var(--accent-gold);"></i>
+              <div>
+                <div class="small text-muted">Звоните</div>
+                <div class="h5 mb-0 fw-medium">+7 (927) 027-70-27</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-4">
+              <i class="bi bi-envelope fs-3 me-3" style="color: var(--accent-gold);"></i>
+              <div>
+                <div class="small text-muted">Почта для вопросов</div>
+                <div class="h5 mb-0 fw-medium">dom@mechta-realty.ru</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Правая колонка: ипотека и помощь -->
+        <div class="col-lg-6">
+          <div class="bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
+            style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
+            <h3 class="mb-3 fw-semibold" style="color: #2c3e2b;">Ипотека и помощь при покупке</h3>
+            <p class="text-secondary mb-4">Мы поможем оформить ипотеку на самых выгодных условиях и сопроводим сделку от
+              начала до конца.</p>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-start mb-3">
+                <i class="bi bi-percent fs-4 me-3" style="color: var(--accent-gold);"></i>
+                <div>
+                  <h5 class="fw-medium mb-1">Господдержка от 5%</h5>
+                  <p class="text-muted small mb-0">Семейная ипотека, IT-ипотека, сельская ипотека — подберём оптимальную
+                    программу.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-3">
+                <i class="bi bi-file-check fs-4 me-3" style="color: var(--accent-gold);"></i>
+                <div>
+                  <h5 class="fw-medium mb-1">Юридическое сопровождение</h5>
+                  <p class="text-muted small mb-0">Проверим документы, застрахуем риски, подготовим договор
+                    купли-продажи.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-3">
+                <i class="bi bi-calculator fs-4 me-3" style="color: var(--accent-gold);"></i>
+                <div>
+                  <h5 class="fw-medium mb-1">Расчёт ежемесячного платежа</h5>
+                  <p class="text-muted small mb-0">Бесплатно рассчитаем для вас комфортную сумму кредита.</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start">
+                <i class="bi bi-building fs-4 me-3" style="color: var(--accent-gold);"></i>
+                <div>
+                  <h5 class="fw-medium mb-1">Помощь с документами</h5>
+                  <p class="text-muted small mb-0">Соберём и подадим документы в банк, поможем с одобрением.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-2">
+              <a href="#" class="btn btn-dark rounded-pill px-5 py-2 fw-semibold" data-bs-toggle="modal"
+                data-bs-target="#contactModal" style="background: #2c3e2b; border: none;">Получить консультацию</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАРТА -->
+  <section class="section-padding bg-soft">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-desc">Тольятти, село Ягодная</p>
+      </div>
+
+      <div class="map-wrapper" style="width: 100%; height: 400px; overflow: hidden; border-radius: 24px;">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?from=mapframe&ll=49.040108%2C53.609615&mode=whatshere&whatshere%5Bpoint%5D=49.040330%2C53.609764&whatshere%5Bzoom%5D=17&z=18.2"
+          width="100%" height="100%" frameborder="0" allowfullscreen="true" style="border:0;">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <!-- ФУТЕР -->
+  <footer id="contacts" class="footer" style="background-color: #111; color: #ccc; padding: 60px 0 30px;">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Логотип и описание -->
+        <div class="col-md-5">
+          <div class="d-flex align-items-center mb-3">
+            <img src="styles/img/logo-white.svg" alt="Логотип ЖК Рождественно" height="32" class="me-2">
+            <span class="fw-semibold fs-4" style="color: #fff;">ЖК «Рождествено»</span>
+          </div>
+          <p class="small text-secondary-emphasis" style="color: #aaa !important;">Премиальные дома и таунхаусы в
+            экологичном районе. Пространство для жизни, где природа встречается с комфортом.</p>
+          <p class="small mt-3" style="color: #aaa;">© 2026 Все права защищены</p>
+        </div>
+
+        <!-- Контакты -->
+        <div class="col-md-4">
+          <h5 class="fw-semibold mb-3" style="color: #fff;">Контакты</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2 d-flex align-items-center">
+              <i class="bi bi-telephone me-2" style="color: #fff;"></i>
+              <a href="tel:+78492949016" class="text-decoration-none" style="color: #ccc;">+7 (927) 027-70-27</a>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="bi bi-envelope me-2" style="color: #fff;"></i>
+              <a href="mailto:dom@mechta-realty.ru" class="text-decoration-none"
+                style="color: #ccc;">dom@mechta-realty.ru</a>
+            </li>
+            <li class="mb-2 d-flex align-items-center">
+              <i class="bi bi-geo-alt me-2" style="color: #fff;"></i>
+              <span style="color: #ccc;">Тольятти, ул. Ягодная, 15</span>
+            </li>
+          </ul>
+          <div class="mt-3">
+            <a href="#" class="me-3" style="color: #aaa; transition: 0.2s;"><i class="bi bi-whatsapp fs-5"></i></a>
+            <a href="#" class="me-3" style="color: #aaa; transition: 0.2s;"><i class="bi bi-telegram fs-5"></i></a>
+            <a href="#" style="color: #aaa; transition: 0.2s;"><i class="bi bi-vk fs-5"></i></a>
+          </div>
+        </div>
+
+        <!-- Навигация и документы -->
+        <div class="col-md-3">
+          <h5 class="fw-semibold mb-3" style="color: #fff;">Информация</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#objects" class="text-decoration-none" style="color: #ccc;">Объекты</a></li>
+            <li class="mb-2"><a href="#location" class="text-decoration-none" style="color: #ccc;">О комплексе</a></li>
+            <li class="mb-2"><a href="#services" class="text-decoration-none" style="color: #ccc;">Услуги</a></li>
+            <li class="mb-2"><a href="#" class="text-decoration-none" style="color: #ccc;" data-bs-toggle="modal"
+                data-bs-target="#privacyModal">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="mt-4" style="border-color: #333;">
+
+      <div class="row mt-3">
+        <div class="col-12 text-center small" style="color: #666;">
+          * Информация на сайте не является публичной офертой. Уточняйте условия у менеджеров.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно для политики конфиденциальности -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content" style="border-radius: 28px;">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title" id="privacyModalLabel">Политика конфиденциальности</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <h6>1. Общие положения</h6>
+          <p>Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального
+            закона от 27.07.2006. № 152-ФЗ «О персональных данных» (далее — Закон о персональных данных) и определяет
+            порядок обработки персональных данных и меры по обеспечению безопасности персональных данных,
+            предпринимаемые ЖК «Рождествено» (далее — Оператор).</p>
+          <p>1.1. Оператор ставит своей важнейшей целью и условием осуществления своей деятельности соблюдение прав и
+            свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на
+            неприкосновенность частной жизни, личную и семейную тайну.</p>
+          <p>1.2. Настоящая политика Оператора в отношении обработки персональных данных (далее — Политика) применяется
+            ко всей информации, которую Оператор может получить о посетителях веб-сайта.</p>
+
+          <h6 class="mt-3">2. Основные понятия, используемые в Политике</h6>
+          <p>2.1. Автоматизированная обработка персональных данных — обработка персональных данных с помощью средств
+            вычислительной техники.</p>
+          <p>2.2. Блокирование персональных данных — временное прекращение обработки персональных данных (за исключением
+            случаев, если обработка необходима для уточнения персональных данных).</p>
+          <p>2.3. Веб-сайт — совокупность графических и информационных материалов, а также программ для ЭВМ и баз
+            данных, обеспечивающих их доступность в сети интернет.</p>
+
+          <h6 class="mt-3">3. Цели обработки персональных данных</h6>
+          <p>Цель обработки: предоставление доступа Пользователю к сервисам, информации и/или материалам, содержащимся
+            на веб-сайте.</p>
+          <p>Персональные данные: фамилия, имя, отчество; электронный адрес; номера телефонов.</p>
+          <p>Правовые основания: Федеральный закон «Об информации, информационных технологиях и о защите информации» от
+            27.07.2006 N 149-ФЗ.</p>
+          <p>Виды обработки персональных данных: Сбор, систематизация, уточнение (обновление, изменение), использование,
+            удаление.</p>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-primary-custom" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Модальные окна (пример) -->
+  <div class="modal fade" id="contactModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Получить информацию</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Свяжитесь с наши риэлтором по номеру <br> телефона или почте</p>
+          <div class="d-flex align-items-center">
+            <div>
+              <div class="small text-muted">Звоните</div>
+              <div class="h6">+7 (927) 027-70-27</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-4">
+            <div>
+              <div class="small text-muted">Почта для вопросов</div>
+              <div class="h6">dom@mechta-realty.ru</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="styles/boostrap/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
+
+</html>
