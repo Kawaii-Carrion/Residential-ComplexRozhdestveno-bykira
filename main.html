@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Дуплекс 130 м² — ЖК «Рождественно»</title>
-  <!-- Bootstrap 5.3 CSS -->
   <link href="styles/boostrap/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     :root {
@@ -43,7 +41,7 @@
       letter-spacing: -0.02em;
     }
 
-    /* Навигация */
+   
     .navbar {
       background-color: rgba(255, 255, 255, 0.98) !important;
       backdrop-filter: blur(12px);
@@ -88,7 +86,7 @@
       color: var(--accent-green) !important;
     }
 
-    /* Навигация */
+    
     .navbar {
       background-color: rgba(255, 255, 255, 0.96) !important;
       backdrop-filter: blur(12px);
@@ -123,7 +121,6 @@
       color: var(--accent-gold) !important;
     }
 
-    /* Контактный блок в хедере */
     .header-contact {
       background: #f8f8f8;
       padding: 8px 18px;
@@ -163,12 +160,11 @@
     }
 
 
-    /* Секции */
     .section-padding {
       padding: 100px 0;
     }
 
-    /* Блок с галереей и информацией */
+   
     .hero-layout {
       display: flex;
       gap: 32px;
@@ -189,7 +185,7 @@
       align-self: flex-start;
     }
 
-    /* Карусель — убираем зелёный прямоугольник */
+  
     .gallery-slider {
       border-radius: var(--border-radius-card);
       overflow: hidden;
@@ -224,7 +220,7 @@
       border-radius: 50%;
     }
 
-    /* Информационная карточка */
+
     .info-card {
       background: #fff;
       border-radius: var(--border-radius-card);
@@ -253,7 +249,7 @@
       margin: 0.75rem 0;
     }
 
-    /* Выбор цвета — круглые миниатюры */
+   
     .color-section {
       margin: 28px 0;
       padding: 24px 0;
@@ -319,7 +315,7 @@
       color: var(--accent-green);
     }
 
-    /* Чек-лист */
+    
     .check-list {
       list-style: none;
       padding-left: 0;
@@ -338,7 +334,7 @@
       color: var(--accent-green);
     }
 
-    /* Кнопка */
+  
     .btn-primary-custom {
       background: var(--primary-dark);
       color: white;
@@ -363,7 +359,7 @@
       box-shadow: 0 10px 20px rgba(45, 106, 79, 0.2);
     }
 
-    /* Характеристики */
+   
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -448,7 +444,7 @@
       gap: 12px;
     }
 
-    /* Модальное окно для лайтбокса */
+   
     .lightbox-modal .modal-dialog {
       max-width: 90vw;
       margin: 1.75rem auto;
@@ -519,7 +515,7 @@
           <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
         </ul>
-        <!-- Контактный блок в хедере -->
+       
         <div class="header-contact d-none d-lg-flex align-items-center">
           <div class="header-contact-icon">
             <i class="bi bi-telephone-outbound-fill"></i>
@@ -531,7 +527,7 @@
         </div>
       </div>
     </div>
-  </nav> <!-- ХИРО с фото -->
+  </nav> 
 
   <!-- Основной контент -->
   <section class="section-padding" style="margin-top: 20px;">
@@ -676,17 +672,15 @@
     </div>
   </section>
 
-  <!-- Модальное окно для записи -->
 
-
-  <!-- Модальное окно для лайтбокса (увеличение фото) -->
+  <!-- Модальное окно -->
   <div class="modal fade lightbox-modal" id="lightboxModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
           <div id="lightboxCarousel" class="carousel slide" data-bs-ride="false">
             <div class="carousel-inner">
-              <!-- сюда динамически загружаются слайды -->
+      
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#lightboxCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -705,7 +699,7 @@
   <script src="styles/boostrap/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // --- Переключение цвета и смена фото ---
+     
       const variants = document.querySelectorAll('.color-option');
       const priceElement = document.getElementById('housePrice');
       const carouselInner = document.querySelector('#houseCarousel .carousel-inner');
@@ -736,7 +730,7 @@
           carouselInner.appendChild(slideDiv);
         });
         if (carousel) carousel.to(0);
-        // переназначаем обработчики кликов на новые изображения
+        
         attachLightboxTriggers();
       }
 
@@ -760,7 +754,7 @@
         });
       });
 
-      // --- Лайтбокс: увеличение фото при клике ---
+      
       const lightboxModal = new bootstrap.Modal(document.getElementById('lightboxModal'));
       const lightboxCarouselInner = document.querySelector('#lightboxCarousel .carousel-inner');
       let currentImagesList = [];
@@ -774,7 +768,7 @@
       }
 
       function imageClickHandler(e) {
-        // Собираем все фото из текущей карусели
+        
         const items = document.querySelectorAll('#houseCarousel .carousel-item');
         currentImagesList = [];
         items.forEach(item => {
@@ -782,7 +776,7 @@
           currentImagesList.push(src);
         });
         const clickedIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
-        // Заполняем лайтбокс-карусель
+        
         lightboxCarouselInner.innerHTML = '';
         currentImagesList.forEach((src, idx) => {
           const slideDiv = document.createElement('div');
@@ -790,13 +784,13 @@
           slideDiv.innerHTML = `<img src="${src}" class="d-block w-100" alt="Увеличенное фото">`;
           lightboxCarouselInner.appendChild(slideDiv);
         });
-        // Сбросить индикаторы (не обязательны)
+        
         lightboxModal.show();
       }
 
-      // Изначальная привязка
+      
       attachLightboxTriggers();
-      // также при смене слайда основной карусели не забываем перепривязать (но изображения не меняются, только активный слайд)
+     
       document.getElementById('houseCarousel').addEventListener('slid.bs.carousel', function () {
         attachLightboxTriggers();
       });
@@ -842,12 +836,10 @@
 <!-- Контакты -->
 <section id="contacts" class="position-relative"
   style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 70px 0; overflow: hidden;">
-  <!-- Декоративный узор (линии) -->
   <div class="position-absolute top-0 start-0 w-100 h-100"
     style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px); pointer-events: none;">
   </div>
 
-  <!-- Герб справа (большой, видна только половина) -->
   <div class="position-absolute top-50 end-0 translate-middle-y"
     style="width: 1000px; height: auto; opacity: 5; pointer-events: none; transform: translateX(50%) translateY(-50%);">
     <img src="styles/img/gerb.webp" alt="" style="width: 100%; height: auto;">
@@ -855,7 +847,6 @@
 
   <div class="container position-relative">
     <div class="row g-5">
-      <!-- Левая колонка: контактная информация -->
       <div class="col-lg-6">
         <div class="contact-block bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
           style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
@@ -879,7 +870,6 @@
         </div>
       </div>
 
-      <!-- Правая колонка: ипотека и помощь -->
       <div class="col-lg-6">
         <div class="bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
           style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
@@ -1111,7 +1101,6 @@
 <footer id="contacts" class="footer" style="background-color: #111; color: #ccc; padding: 60px 0 30px;">
   <div class="container">
     <div class="row g-5">
-      <!-- Логотип и описание -->
       <div class="col-md-5">
         <div class="d-flex align-items-center mb-3">
           <img src="styles/img/logo-white.svg" alt="Логотип ЖК Рождественно" height="32" class="me-2">
@@ -1147,7 +1136,6 @@
         </div>
       </div>
 
-      <!-- Навигация и документы -->
       <div class="col-md-3">
         <h5 class="fw-semibold mb-3" style="color: #fff;">Информация</h5>
         <ul class="list-unstyled">
@@ -1212,7 +1200,6 @@
     </div>
   </div>
 </div>
-
 
 <!-- Модальное окно -->
 <div class="modal fade" id="contactModal" tabindex="-1">
