@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Дома вашей мечты | Современная недвижимость</title>
-  <!-- Bootstrap 5.3 CSS -->
   <link href="styles/boostrap/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     :root {
@@ -31,7 +29,7 @@
       line-height: 1.5;
     }
 
-    /* Typography */
+  
     h1,
     h2,
     h3,
@@ -42,7 +40,7 @@
       letter-spacing: -0.02em;
     }
 
-    /* Навигация */
+ 
     .navbar {
       background-color: rgba(255, 255, 255, 0.96) !important;
       backdrop-filter: blur(12px);
@@ -77,7 +75,7 @@
       color: var(--accent-gold) !important;
     }
 
-    /* Контактный блок в хедере */
+   
     .header-contact {
       background: #f8f8f8;
       padding: 8px 18px;
@@ -116,7 +114,7 @@
       color: #6c757d;
     }
 
-    /* На мобильных устройствах контактный блок показываем внутри выпадающего меню (опционально) */
+    
     @media (max-width: 991.98px) {
       .header-contact {
         display: flex !important;
@@ -126,7 +124,7 @@
       }
     }
 
-    /* Герой (с фоновым изображением) */
+   
     .hero {
       padding: 200px 0 140px;
       position: relative;
@@ -205,7 +203,7 @@
       color: var(--primary-dark);
     }
 
-    /* Общие стили секций */
+ 
     .section-padding {
       padding: 80px 0;
     }
@@ -243,7 +241,7 @@
       margin: 0 auto;
     }
 
-    /* Карточки объектов (уже modern) */
+    
     .object-card {
       background: #fff;
       border-radius: 24px;
@@ -343,7 +341,7 @@
       border-bottom-color: var(--accent-gold);
     }
 
-    /* Стили для оверлея изображения */
+    
     .card-media {
       position: relative;
       overflow: hidden;
@@ -374,7 +372,7 @@
       cursor: pointer;
     }
 
-    /* Стили для карусели в модалке */
+    
     #galleryCarousel .carousel-item img,
     #galleryCarousel .carousel-item video {
       max-height: 80vh;
@@ -387,7 +385,7 @@
       background-color: #000;
     }
 
-    /* Блок связи после карточек */
+    
     .contact-teaser {
       margin-top: 60px;
       padding-top: 20px;
@@ -431,7 +429,7 @@
       margin-top: 14px;
     }
 
-    /* Видео */
+   
     .video-wrapper {
       max-width: 1000px;
       margin: 0 auto;
@@ -445,7 +443,7 @@
       display: block;
     }
 
-    /* Инфраструктура (карточки) */
+    
     .infra-grid {
       display: flex;
       flex-wrap: wrap;
@@ -485,7 +483,7 @@
       font-size: 0.9rem;
     }
 
-    /* Услуги */
+   
     .service-card {
       background: white;
       border-radius: 24px;
@@ -512,7 +510,7 @@
       margin-bottom: 0.75rem;
     }
 
-    /* Контакты */
+   
     .contact-block {
       background: white;
       border-radius: 32px;
@@ -541,14 +539,14 @@
       box-shadow: 0 0 0 3px rgba(192, 161, 107, 0.1);
     }
 
-    /* Карта */
+   
     .map-wrapper {
       border-radius: 32px;
       overflow: hidden;
       box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.05);
     }
 
-    /* Футер */
+   
     .footer {
       background-color: #111;
       color: #aaa;
@@ -643,7 +641,7 @@
     </div>
   </section>
 
-  <!-- ОБЪЕКТЫ (modern) -->
+  <!-- ОБЪЕКТЫ -->
   <section id="objects" class="section-padding objects-modern">
     <div class="container">
       <div class="section-header">
@@ -652,7 +650,7 @@
       </div>
 
       <div class="row g-4">
-        <!-- Таунхаус (с галереей) -->
+        <!-- Таунхаус -->
         <div class="col-md-6 col-lg-4">
           <div class="object-card"
             data-gallery="styles/img/tanhays.black1.jpg,styles/img/tanhays.black2.jpg,styles/img/tanhays.black3.jpg,styles/img/tanhays.black4.jpg">
@@ -694,7 +692,7 @@
           </div>
         </div>
 
-        <!-- Торговое помещение (аренда) -->
+        <!-- Торговое помещение -->
         <div class="col-md-6 col-lg-4">
           <div class="object-card"
             data-gallery="styles/img/dyplex.black8.jpg,styles/img/dyplex.black9.jpg,styles/img/dyplex.black10.jpg">
@@ -735,7 +733,7 @@
         <div class="modal-body p-0">
           <div id="galleryCarousel" class="carousel slide" data-bs-ride="false">
             <div class="carousel-inner rounded-4 overflow-hidden shadow-lg">
-              <!-- Слайды будут добавлены динамически через JS -->
+             
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -753,7 +751,7 @@
 
 
   <script>
-    // Обработка клика по изображению для открытия галереи
+    
     document.addEventListener('DOMContentLoaded', function () {
       const triggers = document.querySelectorAll('.gallery-trigger');
       const galleryModal = new bootstrap.Modal(document.getElementById('galleryModal'));
@@ -761,14 +759,14 @@
 
       triggers.forEach(trigger => {
         trigger.addEventListener('click', function (e) {
-          // Получаем массив путей из data-gallery родительской карточки
+          
           const card = this.closest('.object-card');
           const galleryData = card.getAttribute('data-gallery');
           if (!galleryData) return;
 
           const images = galleryData.split(',').map(img => img.trim());
 
-          // Очищаем карусель
+          
           carouselInner.innerHTML = '';
 
           // Создаём слайды
@@ -780,7 +778,7 @@
             carouselInner.appendChild(slideDiv);
           });
 
-          // Если только одно изображение — убираем кнопки навигации
+          
           const prevBtn = document.querySelector('#galleryCarousel .carousel-control-prev');
           const nextBtn = document.querySelector('#galleryCarousel .carousel-control-next');
           if (images.length === 1) {
@@ -798,11 +796,10 @@
   </script>
 
   <!-- ВИДЕО -->
-  <!-- Блок: описание ЖК + мультимедийный слайдер (видео + фото) -->
   <section id="location" class="section-padding bg-soft" style="position: relative;">
     <div class="container">
       <div class="row align-items-center g-5">
-        <!-- Левая колонка: текст -->
+        
         <div class="col-lg-6">
           <div class="mb-4">
             <h2 class="display-5 fw-normal mt-2 mb-3" style="letter-spacing: -0.02em;">ЖК «Рождествено»</h2>
@@ -857,7 +854,7 @@
           </a>
         </div>
 
-        <!-- Правая колонка: слайдер -->
+        
         <div class="col-lg-6">
           <div id="mediaSlider2" class="carousel slide" data-bs-ride="false">
 
@@ -976,12 +973,10 @@
   <!-- КОНТАКТЫ -->
   <section id="services" class="position-relative"
     style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 70px 0; overflow: hidden;">
-    <!-- Декоративный узор (линии) -->
     <div class="position-absolute top-0 start-0 w-100 h-100"
       style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px); pointer-events: none;">
     </div>
 
-    <!-- Герб справа (большой, видна только половина) -->
     <div class="position-absolute top-50 end-0 translate-middle-y"
       style="width: 1000px; height: auto; opacity: 5; pointer-events: none; transform: translateX(50%) translateY(-50%);">
       <img src="styles/img/gerb.webp" alt="" style="width: 100%; height: auto;">
@@ -989,7 +984,6 @@
 
     <div class="container position-relative">
       <div class="row g-5">
-        <!-- Левая колонка: контактная информация -->
         <div class="col-lg-6">
           <div class="contact-block bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
             style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
@@ -1013,7 +1007,6 @@
           </div>
         </div>
 
-        <!-- Правая колонка: ипотека и помощь -->
         <div class="col-lg-6">
           <div class="bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
             style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
@@ -1081,11 +1074,9 @@
   </section>
 
   <!-- ФУТЕР -->
-  <!-- ФУТЕР -->
   <footer id="contacts" class="footer" style="background-color: #111; color: #ccc; padding: 60px 0 30px;">
     <div class="container">
       <div class="row g-5">
-        <!-- Логотип и описание -->
         <div class="col-md-5">
           <div class="d-flex align-items-center mb-3">
             <img src="styles/img/logo-white.svg" alt="Логотип ЖК Рождественно" height="32" class="me-2">
@@ -1121,7 +1112,6 @@
           </div>
         </div>
 
-        <!-- Навигация и документы -->
         <div class="col-md-3">
           <h5 class="fw-semibold mb-3" style="color: #fff;">Информация</h5>
           <ul class="list-unstyled">
@@ -1187,7 +1177,7 @@
       </div>
     </div>
   </div>
-  <!-- Модальные окна (пример) -->
+  <!-- Модальные окна -->
   <div class="modal fade" id="contactModal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
