@@ -41,7 +41,7 @@
             letter-spacing: -0.02em;
         }
 
-       
+
         .navbar {
             background-color: rgba(255, 255, 255, 0.98) !important;
             backdrop-filter: blur(12px);
@@ -86,7 +86,7 @@
             color: var(--accent-green) !important;
         }
 
-        
+
         .navbar {
             background-color: rgba(255, 255, 255, 0.96) !important;
             backdrop-filter: blur(12px);
@@ -121,7 +121,7 @@
             color: var(--accent-gold) !important;
         }
 
-       
+
         .header-contact {
             background: #f8f8f8;
             padding: 8px 18px;
@@ -161,12 +161,12 @@
         }
 
 
-        
+
         .section-padding {
             padding: 100px 0;
         }
 
-        
+
         .hero-layout {
             display: flex;
             gap: 32px;
@@ -187,7 +187,7 @@
             align-self: flex-start;
         }
 
-        
+
         .gallery-slider {
             border-radius: var(--border-radius-card);
             overflow: hidden;
@@ -222,7 +222,7 @@
             border-radius: 50%;
         }
 
-       
+
         .info-card {
             background: #fff;
             border-radius: var(--border-radius-card);
@@ -251,7 +251,7 @@
             margin: 0.75rem 0;
         }
 
-        
+
         .color-section {
             margin: 28px 0;
             padding: 24px 0;
@@ -317,7 +317,7 @@
             color: var(--accent-green);
         }
 
-       
+
         .check-list {
             list-style: none;
             padding-left: 0;
@@ -336,7 +336,7 @@
             color: var(--accent-green);
         }
 
-       
+
         .btn-primary-custom {
             background: var(--primary-dark);
             color: white;
@@ -361,7 +361,7 @@
             box-shadow: 0 10px 20px rgba(45, 106, 79, 0.2);
         }
 
-       
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -446,7 +446,7 @@
             gap: 12px;
         }
 
-      
+
         .lightbox-modal .modal-dialog {
             max-width: 90vw;
             margin: 1.75rem auto;
@@ -528,7 +528,7 @@
                 </div>
             </div>
         </div>
-    </nav> 
+    </nav>
 
     <!-- Основной контент -->
     <section class="section-padding" style="margin-top: 20px;">
@@ -592,23 +592,24 @@
                         <div class="price-big" id="housePrice">от 10 500 000 ₽</div>
 
                         <div class="color-section">
-                        <div class="color-label">Отделка фасада</div>
-                          <div class="color-grid">
-                             <div class="color-option active" data-price="9500000" data-name="Светлый"
-                  data-images='["styles/img/tanhays.black1.jpg","styles/img/tanhays.black5.jpg","styles/img/tanhays.black3.jpg","styles/img/---.white4.jpg"]'>
-                                 <div class="color-swatch" style="background: #f5f0e8; border: 1px solid #ddd;"></div>
-                                 <span class="color-name">Бежевый</span>
-                                 <span class="color-price">от 9,5 млн</span>
-                           </div>
-                          <div class="color-option" data-price="9500000" data-name="Тёмный"
-                  data-images='["styles/img/---.black2.jpg","styles/img/---.black3.jpg","styles/img/---.black4.jpg","styles/img/---.black5.jpg"]'>
-                             <div class="color-swatch" style="background: #2c2c2c;"></div>
-                             <span class="color-name">Графит</span>
-                             <span class="color-price">от 9,5 млн</span>
-                          </div>
-                
-                     </div>
-                  </div>
+                            <div class="color-label">Отделка фасада</div>
+                            <div class="color-grid">
+                                <div class="color-option active" data-price="9500000" data-name="Светлый"
+                                    data-images='["styles/img/tanhays.black1.jpg","styles/img/tanhays.black5.jpg","styles/img/tanhays.black3.jpg","styles/img/---.white4.jpg"]'>
+                                    <div class="color-swatch" style="background: #f5f0e8; border: 1px solid #ddd;">
+                                    </div>
+                                    <span class="color-name">Бежевый</span>
+                                    <span class="color-price">от 9,5 млн</span>
+                                </div>
+                                <div class="color-option" data-price="9500000" data-name="Тёмный"
+                                    data-images='["styles/img/---.black2.jpg","styles/img/---.black3.jpg","styles/img/---.black4.jpg","styles/img/---.black5.jpg"]'>
+                                    <div class="color-swatch" style="background: #2c2c2c;"></div>
+                                    <span class="color-name">Графит</span>
+                                    <span class="color-price">от 9,5 млн</span>
+                                </div>
+
+                            </div>
+                        </div>
 
                         <ul class="check-list">
                             <li><i class="bi bi-check-circle-fill"></i> Полный пакет документов</li>
@@ -682,7 +683,7 @@
                 <div class="modal-body">
                     <div id="lightboxCarousel" class="carousel slide" data-bs-ride="false">
                         <div class="carousel-inner">
-                         
+
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#lightboxCarousel"
                             data-bs-slide="prev">
@@ -703,7 +704,7 @@
     <script src="styles/boostrap/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-           
+
             const variants = document.querySelectorAll('.color-option');
             const priceElement = document.getElementById('housePrice');
             const carouselInner = document.querySelector('#houseCarousel .carousel-inner');
@@ -734,7 +735,7 @@
                     carouselInner.appendChild(slideDiv);
                 });
                 if (carousel) carousel.to(0);
-                
+
                 attachLightboxTriggers();
             }
 
@@ -771,7 +772,7 @@
             }
 
             function imageClickHandler(e) {
-                
+
                 const items = document.querySelectorAll('#houseCarousel .carousel-item');
                 currentImagesList = [];
                 items.forEach(item => {
@@ -779,7 +780,7 @@
                     currentImagesList.push(src);
                 });
                 const clickedIndex = Array.from(items).findIndex(item => item.classList.contains('active'));
-                
+
                 lightboxCarouselInner.innerHTML = '';
                 currentImagesList.forEach((src, idx) => {
                     const slideDiv = document.createElement('div');
@@ -787,13 +788,13 @@
                     slideDiv.innerHTML = `<img src="${src}" class="d-block w-100" alt="Увеличенное фото">`;
                     lightboxCarouselInner.appendChild(slideDiv);
                 });
-                
+
                 lightboxModal.show();
             }
 
-           
+
             attachLightboxTriggers();
-            
+
             document.getElementById('houseCarousel').addEventListener('slid.bs.carousel', function () {
                 attachLightboxTriggers();
             });
@@ -839,12 +840,12 @@
 <!-- Контакты -->
 <section id="contacts" class="position-relative"
     style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); padding: 70px 0; overflow: hidden;">
-    
+
     <div class="position-absolute top-0 start-0 w-100 h-100"
         style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px); pointer-events: none;">
     </div>
 
-   
+
     <div class="position-absolute top-50 end-0 translate-middle-y"
         style="width: 1000px; height: auto; opacity: 5; pointer-events: none; transform: translateX(50%) translateY(-50%);">
         <img src="styles/img/gerb.webp" alt="" style="width: 100%; height: auto;">
@@ -852,7 +853,7 @@
 
     <div class="container position-relative">
         <div class="row g-5">
-            
+
             <div class="col-lg-6">
                 <div class="contact-block bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
                     style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
@@ -876,7 +877,7 @@
                 </div>
             </div>
 
-            
+
             <div class="col-lg-6">
                 <div class="bg-white p-4 p-lg-5 rounded-4 shadow-lg h-100"
                     style="background: rgba(255,255,255,0.95); backdrop-filter: blur(2px);">
